@@ -1,0 +1,23 @@
+{
+  "name": "Atom",
+  "short_name": "Atom",
+  "description": "Automated Transformation Optimization & Modernization Platform",
+  "lang": "en",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1096eb",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "author": {
+    "name": "Abhishek Jain",
+    "website": "https://dotajain.com",
+    "github": "https://github.com/dotajain",
+    "source-repo": "https://github.com/dotajain/pwa-portal"
+  }
+}

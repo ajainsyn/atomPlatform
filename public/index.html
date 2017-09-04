@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Atom || Automated Transformation Optimization & Modernization Platform</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Patient One">
+    <meta name="apple-mobile-web-app-title" content="Patient One">
+    <meta name="theme-color" content="#1096eb">
+    <meta name="msapplication-navbutton-color" content="#1096eb">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="512x512" href="512.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="512.png">
+  <link rel="preload" href="/0.0083631b.js" as="script">
+<link rel="preload" href="/vendor.90479aa6.js" as="script">
+<link rel="preload" href="/main.568cbc08.js" as="script">
+<link rel="preload" href="/manifest.5d6ec804.js" as="script">
+</head>
+  <body>
+    <noscript>
+      <a href="http://enable-javascript.com/">Javascript must me enabled to use this site.</a>
+    </noscript>
+    <react />
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD8cVGW-e4zCLa98ivZmBp42VpFP53_dvg",
+        authDomain: "natural-broker-164116.firebaseapp.com",
+        databaseURL: "https://natural-broker-164116.firebaseio.com",
+        projectId: "natural-broker-164116",
+        storageBucket: "natural-broker-164116.appspot.com",
+        messagingSenderId: "492763510386"
+      };
+      firebase.initializeApp(config);
+
+      const messaging=firebase.messaging();
+    
+      messaging.requestPermission()
+      .then(function(){
+        console.log('Have permission');
+        return messaging.getToken();
+      })
+      .then(function(token){
+        console.log(token);
+        var time= Math.floor(Date.now() / 1000);
+      
+        // firebase.database().ref().set({
+        //  time:token,
+        // });
+
+        firebase.database().ref().child('token').push({texttoken:token});
+        
+        
+      })
+      .catch(function(err){
+        console.log('Error Occured');
+      })
+      messaging.onMessage(function(payload){
+        
+        console.log("OnMessage:", payload);
+        var notification = new Notification(payload.notification.title, {
+          icon: 'https://patient-portal-e3b69.firebaseapp.com/512.png',
+          body: payload.notification.body ,
+        });
+
+      });
+      </script>
+  <script type="text/javascript" src="/manifest.5d6ec804.js"></script><script type="text/javascript" src="/vendor.90479aa6.js"></script><script type="text/javascript" src="/main.568cbc08.js"></script></body>
+</html>
